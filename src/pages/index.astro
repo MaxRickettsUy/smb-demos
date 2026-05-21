@@ -8,7 +8,7 @@ const demos = [
     industry: 'Tree Service · Arboriculture',
     location: 'Asheville, NC',
     tone: 'Rugged · Editorial · Workwear',
-    href: '/demos/tree-service',
+    href: 'demos/tree-service',
     swatch: ['#1f2a1d', '#b85a2b', '#e9dfc8'],
     status: 'Live',
   },
@@ -55,7 +55,7 @@ const demos = [
         <div class="grid md:grid-cols-2 gap-8 md:gap-10">
           {demos.map((demo, i) => (
             <a
-              href={demo.href}
+              href={`${import.meta.env.BASE_URL}${demo.href}`}
               class="group relative block bg-bone border border-ink/20 hover:border-ink transition-all duration-300 hover:-translate-y-1"
             >
               <div class="aspect-[4/3] relative overflow-hidden bg-moss">
