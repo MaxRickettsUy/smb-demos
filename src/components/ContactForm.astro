@@ -1,0 +1,31 @@
+---
+interface Props {
+  heading?: string;
+}
+
+const { heading = 'Request a call back' } = Astro.props;
+---
+<form action="#" class="rounded-lg border border-line bg-white p-6">
+  <h2 class="text-xl font-semibold text-ink">{heading}</h2>
+  <div class="mt-5 grid gap-4">
+    <label class="grid gap-2 text-sm font-medium text-ink">
+      Name
+      <input name="name" autocomplete="name" class="rounded-md border border-line bg-paper px-3 py-2 outline-none focus:border-[var(--accent)]" />
+    </label>
+    <label class="grid gap-2 text-sm font-medium text-ink">
+      Phone
+      <input name="phone" autocomplete="tel" class="rounded-md border border-line bg-paper px-3 py-2 outline-none focus:border-[var(--accent)]" />
+    </label>
+    <label class="grid gap-2 text-sm font-medium text-ink">
+      Email
+      <input name="email" type="email" autocomplete="email" class="rounded-md border border-line bg-paper px-3 py-2 outline-none focus:border-[var(--accent)]" />
+    </label>
+    <label class="grid gap-2 text-sm font-medium text-ink">
+      Message
+      <textarea name="message" rows="4" class="resize-y rounded-md border border-line bg-paper px-3 py-2 outline-none focus:border-[var(--accent)]"></textarea>
+    </label>
+    <button type="submit" class="rounded-md bg-[var(--accent)] px-4 py-3 text-sm font-semibold text-white hover:opacity-90">
+      Send request
+    </button>
+  </div>
+</form>

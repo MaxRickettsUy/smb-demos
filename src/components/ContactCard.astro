@@ -1,0 +1,45 @@
+---
+import type { Business } from '../lib/business';
+
+interface Props {
+  business: Business;
+}
+
+const { business } = Astro.props;
+---
+<section aria-label="Business contact information" class="rounded-lg border border-line bg-white p-6">
+  <h2 class="text-xl font-semibold text-ink">Contact</h2>
+  <div class="mt-5 space-y-5 text-sm">
+    <div>
+      <div class="label text-muted">Phone</div>
+      <a href={business.phoneHref} class="mt-1 block text-lg font-semibold text-[var(--accent)]">{business.phone}</a>
+    </div>
+    <div>
+      <div class="label text-muted">Email</div>
+      <a href={`mailto:${business.email}`} class="mt-1 block text-ink hover:text-[var(--accent)]">{business.email}</a>
+    </div>
+    {business.facebook && (
+      <div>
+        <div class="label text-muted">Facebook</div>
+        <a href={business.facebook} class="mt-1 block text-ink hover:text-[var(--accent)]">Follow on Facebook</a>
+      </div>
+    )}
+    <div>
+      <div class="label text-muted">Address</div>
+      <address class="mt-1 not-italic leading-6 text-ink">
+        {business.address.map((line) => <>{line}<br /></>)}
+      </address>
+    </div>
+    <div>
+      <div class="label text-muted">Hours</div>
+      <dl class="mt-2 space-y-2">
+        {business.hours.map((item) => (
+          <div class="flex justify-between gap-4">
+            <dt class="text-muted">{item.days}</dt>
+            <dd class="text-right font-medium text-ink">{item.time}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,609 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/classic.css';
+
+const services = [
+  {
+    n: '01',
+    title: 'Tree Removal',
+    blurb: 'Hazardous, diseased, and crowded trees taken down with precision rigging — no fences crushed, no flowerbeds flattened.',
+    tag: 'Crane-Assisted',
+  },
+  {
+    n: '02',
+    title: 'Trimming & Pruning',
+    blurb: 'Structural pruning, crown thinning, deadwood removal. ANSI A300 standards followed to the letter.',
+    tag: 'ISA Standard',
+  },
+  {
+    n: '03',
+    title: 'Stump Grinding',
+    blurb: 'Ground six to twelve inches below grade. Mulch hauled off or left as soil amendment — your call.',
+    tag: 'Clean Finish',
+  },
+  {
+    n: '04',
+    title: 'Emergency Storm Response',
+    blurb: 'Trees on the house at 2 a.m.? We answer the phone. Trucks rolling within 90 minutes across the service area.',
+    tag: '24/7',
+  },
+  {
+    n: '05',
+    title: 'Land Clearing',
+    blurb: 'Lots, driveways, pasture edges, view corridors. Selective clearing that leaves the right trees standing.',
+    tag: 'Acreage',
+  },
+];
+
+const credentials = [
+  { k: 'ISA', label: 'ISA-Certified Arborists', sub: 'On every job, every time.' },
+  { k: '#NC', label: 'Licensed & Fully Insured', sub: 'Workers comp + $2M liability.' },
+  { k: '24/7', label: 'Emergency Storm Response', sub: 'Answered by a human, always.' },
+  { k: 'EST', label: 'Three Generations Strong', sub: 'Family-run since 1987.' },
+];
+
+const gallery = [
+  { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1400&q=80&auto=format', caption: 'Lot 47 · 90-ft white oak removal', meta: 'East Asheville · Mar 2025', span: 'md:col-span-2 md:row-span-2' },
+  { src: 'https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=1000&q=80&auto=format', caption: 'Crown reduction · river birch', meta: 'Black Mountain · Apr 2025', span: '' },
+  { src: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1000&q=80&auto=format', caption: 'View corridor clearing · 2.4 ac', meta: 'Weaverville · May 2025', span: '' },
+  { src: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1000&q=80&auto=format', caption: 'Storm-damage triage · maple', meta: 'Hendersonville · Jun 2025', span: '' },
+  { src: 'https://images.unsplash.com/photo-1574482620133-93b91f5b9d8e?w=1000&q=80&auto=format', caption: 'Stump grind · 36" diameter', meta: 'Fairview · Jul 2025', span: '' },
+];
+
+const testimonials = [
+  {
+    quote: "They took down a hundred-year oak twelve feet from my chimney. Not a shingle out of place. I've already booked them for the others.",
+    name: 'Margaret H.',
+    place: 'Montford, NC',
+    job: 'Removal · 3 trees',
+  },
+  {
+    quote: "Storm dropped a pine on the barn at 1am. They had a crew on-site by sunrise. Honest pricing and the cleanest jobsite I've seen in thirty years of farming.",
+    name: 'Cal R.',
+    place: 'Weaverville, NC',
+    job: 'Emergency Response',
+  },
+  {
+    quote: "The arborist walked the property for an hour before quoting. He talked me out of removing a tulip poplar I would've regretted losing. Real expertise.",
+    name: 'Dana & Wes O.',
+    place: 'Black Mountain, NC',
+    job: 'Pruning · Consult',
+  },
+];
+
+const towns = [
+  'Asheville', 'West Asheville', 'East Asheville', 'Montford', 'Kenilworth',
+  'Black Mountain', 'Swannanoa', 'Weaverville', 'Woodfin', 'Fairview',
+  'Candler', 'Arden', 'Fletcher', 'Hendersonville', 'Mills River',
+  'Leicester', 'Mars Hill', 'Barnardsville',
+];
+
+const tickerItems = [
+  'ISA-Certified Arborists',
+  'Licensed & Fully Insured',
+  '24/7 Storm Response',
+  'Free Written Estimates',
+  '38 Years on the Mountain',
+  '★ ★ ★ ★ ★  ·  412 Five-Star Reviews',
+];
+---
+<Layout
+  title="Ironwood Tree Co. · ISA-Certified Arborists · Asheville, NC"
+  description="Family-run tree service in Asheville, NC since 1987. Tree removal, pruning, stump grinding, 24/7 storm response. Free estimates."
+>
+  <main class="bg-kraft text-ink">
+
+    <!-- Utility bar -->
+    <div class="bg-moss-deep text-bone/85 grain grain-light">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-2.5 flex items-center justify-between text-[0.72rem] tracking-[0.18em] uppercase font-mono">
+        <div class="flex gap-6">
+          <span>Lic. #NC-2918</span>
+          <span class="hidden sm:inline">Fully Insured</span>
+          <span class="hidden md:inline">ISA Member · SO-7240A</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="hidden sm:inline">Storm Line Open 24/7</span>
+          <a href="tel:+18285550142" class="text-rust hover:text-bone transition-colors">☎ (828) 555-0142</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="border-b border-ink/20 bg-kraft sticky top-0 z-40 backdrop-blur">
+      <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-4 flex items-center justify-between">
+        <a href={`${import.meta.env.BASE_URL}/demos/tree-service`.replace(/\/+/g, '/')} class="flex items-center gap-3">
+          <div class="relative w-11 h-11">
+            <div class="absolute inset-0 rounded-full border-2 border-ink"></div>
+            <div class="absolute inset-1 rounded-full border border-ink/40"></div>
+            <div class="absolute inset-0 grid place-items-center font-display text-xl">⌘</div>
+          </div>
+          <div>
+            <div class="font-display text-2xl leading-none">Ironwood</div>
+            <div class="label text-ink/60 mt-0.5">Tree Co. · Est. 1987</div>
+          </div>
+        </a>
+
+        <div class="hidden lg:flex items-center gap-8 label">
+          <a href="#services" class="link-quill hover:text-rust transition-colors">Services</a>
+          <a href="#work" class="link-quill hover:text-rust transition-colors">Our Work</a>
+          <a href="#credentials" class="link-quill hover:text-rust transition-colors">About</a>
+          <a href="#area" class="link-quill hover:text-rust transition-colors">Service Area</a>
+          <a href="#contact" class="link-quill hover:text-rust transition-colors">Contact</a>
+        </div>
+
+        <a href="#contact" class="group flex items-center gap-3 bg-rust hover:bg-rust-deep text-bone px-5 py-3 transition-colors">
+          <span class="label text-bone">Free Estimate</span>
+          <span class="font-display text-xl leading-none group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative bg-moss-deep text-bone overflow-hidden grain grain-light topo">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 pt-16 md:pt-24 pb-24 md:pb-32 grid lg:grid-cols-12 gap-10 items-end">
+
+        <div class="lg:col-span-7">
+          <div class="label text-rust mb-8 rise rise-1">Section 01 — Field Operations</div>
+          <h1 class="font-display text-[clamp(2.75rem,8vw,6.75rem)] leading-[0.92] tracking-tight rise rise-2">
+            We tend to<br/>
+            the giants.
+            <span class="block italic font-light text-lichen mt-2 text-[0.85em]">Big trees, honest work,</span>
+            <span class="block italic font-light text-lichen text-[0.85em]">since nineteen-eighty-seven.</span>
+          </h1>
+
+          <p class="mt-10 max-w-xl text-lg md:text-xl text-bone/80 leading-relaxed rise rise-3">
+            Three generations of arborists working the ridges and hollers around Asheville.
+            Removal, pruning, storm response — done right the first time, billed honest, cleaned up tight.
+          </p>
+
+          <div class="mt-10 flex flex-wrap items-center gap-4 rise rise-4">
+            <a href="#contact" class="group flex items-center gap-4 bg-rust hover:bg-bone hover:text-ink text-bone px-7 py-4 transition-all">
+              <span class="label">Request a Free Estimate</span>
+              <span class="font-display text-2xl leading-none group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+            <a href="tel:+18285550142" class="flex items-center gap-3 text-bone border-b border-bone/40 pb-1 hover:text-rust hover:border-rust transition-colors">
+              <span class="label">Or call</span>
+              <span class="font-display text-xl">(828) 555-0142</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero side panel / image -->
+        <div class="lg:col-span-5 relative rise rise-3">
+          <div class="relative aspect-[4/5] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&q=80&auto=format"
+              alt="Pacific Northwest forest"
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-moss-deep via-moss-deep/30 to-transparent"></div>
+
+            <!-- circular seal -->
+            <div class="absolute -bottom-8 -left-8 md:-left-12 w-44 h-44 md:w-56 md:h-56">
+              <svg viewBox="0 0 200 200" class="absolute inset-0 spin-slow">
+                <defs>
+                  <path id="circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+                </defs>
+                <text class="fill-bone font-mono uppercase" style="font-size: 11px; letter-spacing: 0.32em;">
+                  <textPath href="#circle">FAMILY · OWNED · OPERATED · SINCE · 1987 · ASHEVILLE · NC · </textPath>
+                </text>
+              </svg>
+              <div class="absolute inset-6 rounded-full bg-rust grid place-items-center text-bone">
+                <div class="text-center">
+                  <div class="font-display text-3xl md:text-4xl leading-none">38</div>
+                  <div class="label text-bone/90 mt-1">Years</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- caption block -->
+            <div class="absolute top-4 right-4 bg-kraft text-ink p-3 max-w-[180px]">
+              <div class="label text-rust mb-1">Field Notes</div>
+              <div class="font-display text-sm leading-tight italic">"A standing tree is a customer kept. Bring it down only when she's asked you to."</div>
+              <div class="label text-ink/60 mt-2">— Hollis Burke, founder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust ticker -->
+      <div class="relative z-10 border-y border-bone/15 bg-moss overflow-hidden">
+        <div class="flex ticker-track py-4 whitespace-nowrap">
+          {[...tickerItems, ...tickerItems, ...tickerItems].map(item => (
+            <div class="flex items-center gap-8 px-8 label text-bone/80">
+              <span class="text-rust">✦</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="relative bg-kraft text-ink grain">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-24 md:py-32">
+        <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-20">
+          <div class="md:col-span-5">
+            <div class="label text-rust mb-6">Section 02 — The Work</div>
+            <h2 class="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-tight">
+              Everything from<br/>
+              <em class="italic font-light">a single limb</em><br/>
+              to a hundred-foot oak.
+            </h2>
+          </div>
+          <div class="md:col-span-6 md:col-start-7 self-end">
+            <p class="text-lg text-ink/75 leading-relaxed">
+              Every job starts with a walk of the property and a written estimate.
+              No high-pressure pitches, no upsells, no quotes scribbled on the back of a business card.
+              Just the work that needs doing — and what it'll cost.
+            </p>
+          </div>
+        </div>
+
+        <div class="border-t-2 border-ink">
+          {services.map(s => (
+            <div class="border-b border-ink/30 group">
+              <div class="grid md:grid-cols-12 gap-6 py-8 md:py-10 items-start">
+                <div class="md:col-span-1 font-display text-4xl md:text-5xl text-ink/30 group-hover:text-rust transition-colors">
+                  {s.n}
+                </div>
+                <div class="md:col-span-4">
+                  <h3 class="font-display text-3xl md:text-4xl leading-tight">{s.title}</h3>
+                  <div class="label text-rust mt-2">{s.tag}</div>
+                </div>
+                <div class="md:col-span-6 text-lg text-ink/75 leading-relaxed">
+                  {s.blurb}
+                </div>
+                <div class="md:col-span-1 text-right hidden md:block">
+                  <span class="label text-ink/40 group-hover:text-rust transition-colors">→</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12 flex flex-wrap items-center justify-between gap-6">
+          <p class="font-display text-2xl italic">Don't see what you need? We probably do it.</p>
+          <a href="#contact" class="label text-rust border-b border-rust pb-1 hover:text-ink hover:border-ink transition-colors">Ask us about your job →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS / WHY US -->
+    <section id="credentials" class="relative bg-moss text-bone grain grain-light">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-24 md:py-32">
+        <div class="label text-rust mb-6">Section 03 — Field Credentials</div>
+        <h2 class="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-tight max-w-4xl mb-16">
+          The reasons a neighbor<br/>
+          sends us <em class="italic font-light text-lichen">their neighbor.</em>
+        </h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-bone/15 border border-bone/15">
+          {credentials.map(c => (
+            <div class="bg-moss p-8 md:p-10 group hover:bg-moss-mid transition-colors">
+              <div class="relative w-20 h-20 mb-8">
+                <div class="absolute inset-0 rounded-full border-2 border-rust"></div>
+                <div class="absolute inset-1.5 rounded-full border border-rust/40"></div>
+                <div class="absolute inset-0 grid place-items-center font-display text-xl text-rust">{c.k}</div>
+              </div>
+              <div class="font-display text-2xl leading-tight mb-3">{c.label}</div>
+              <div class="text-bone/70">{c.sub}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-20 grid lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-7">
+            <div class="label text-rust mb-6">A Note from Hollis Jr.</div>
+            <p class="font-display text-2xl md:text-3xl leading-snug italic text-bone/95">
+              "My grandfather started Ironwood with a chainsaw, a Ford pickup, and a handshake.
+              We've got better trucks now. The handshake hasn't changed."
+            </p>
+            <p class="mt-6 text-bone/70 max-w-2xl leading-relaxed">
+              We are licensed in North Carolina, fully insured for workers comp and general liability,
+              and every climbing crew is led by an arborist credentialed by the International Society of Arboriculture.
+              We do this work because we love the trees — and because somebody has to do it right.
+            </p>
+            <div class="mt-8 font-display text-lg italic text-bone/80">— Hollis Burke Jr., 2nd generation owner</div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="grid grid-cols-2 gap-px bg-bone/15 border border-bone/15">
+              <div class="bg-moss p-6">
+                <div class="font-display text-5xl text-rust">412</div>
+                <div class="label mt-2 text-bone/70">Five-star reviews</div>
+              </div>
+              <div class="bg-moss p-6">
+                <div class="font-display text-5xl text-rust">3,800+</div>
+                <div class="label mt-2 text-bone/70">Trees & jobs completed</div>
+              </div>
+              <div class="bg-moss p-6">
+                <div class="font-display text-5xl text-rust">38</div>
+                <div class="label mt-2 text-bone/70">Years in business</div>
+              </div>
+              <div class="bg-moss p-6">
+                <div class="font-display text-5xl text-rust">90 min</div>
+                <div class="label mt-2 text-bone/70">Avg storm response</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY / FROM THE FIELD -->
+    <section id="work" class="relative bg-kraft-light text-ink grain">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-24 md:py-32">
+        <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+          <div>
+            <div class="label text-rust mb-6">Section 04 — From the Field</div>
+            <h2 class="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-tight">
+              The job book.<br/>
+              <em class="italic font-light">Recent entries.</em>
+            </h2>
+          </div>
+          <a href="#contact" class="label text-rust border-b border-rust pb-1 hover:text-ink hover:border-ink transition-colors">
+            Book the next entry →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 grid-rows-[repeat(4,18vw)] md:grid-rows-[repeat(2,22vw)] gap-3 md:gap-4">
+          {gallery.map((g, i) => (
+            <figure class={`relative overflow-hidden bg-moss group ${g.span}`}>
+              <img src={g.src} alt={g.caption} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-moss-deep/85 via-moss-deep/0 to-transparent"></div>
+              <figcaption class="absolute bottom-0 left-0 right-0 p-4 md:p-5 text-bone">
+                <div class="label text-rust/90">№ {String(i + 1).padStart(3, '0')}</div>
+                <div class="font-display text-lg md:text-xl leading-tight mt-1">{g.caption}</div>
+                <div class="label text-bone/70 mt-1">{g.meta}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="relative bg-kraft text-ink grain">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-24 md:py-32">
+        <div class="label text-rust mb-6">Section 05 — Word from the Mountain</div>
+        <h2 class="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-tight max-w-4xl mb-16">
+          What the neighbors say<br/>
+          <em class="italic font-light">when the saws stop.</em>
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-px bg-ink/20 border border-ink/20">
+          {testimonials.map((t, i) => (
+            <figure class="bg-bone p-8 md:p-10 relative">
+              <div class="font-display text-7xl text-rust leading-none mb-4 select-none">"</div>
+              <blockquote class="font-display text-xl md:text-2xl leading-snug italic">
+                {t.quote}
+              </blockquote>
+              <figcaption class="mt-8 pt-6 border-t border-ink/20">
+                <div class="font-display text-lg">{t.name}</div>
+                <div class="label text-ink/60 mt-1">{t.place} · {t.job}</div>
+              </figcaption>
+              <div class="absolute top-6 right-6 label text-ink/40">№ {String(i + 1).padStart(2, '0')}</div>
+            </figure>
+          ))}
+        </div>
+
+        <div class="mt-10 flex items-center gap-3 label text-ink/70">
+          <span class="text-rust">★ ★ ★ ★ ★</span>
+          <span>4.9 average across Google, Angi, and Nextdoor · 412 reviews</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA -->
+    <section id="area" class="relative bg-moss-deep text-bone grain grain-light topo">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-24 md:py-32">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5">
+            <div class="label text-rust mb-6">Section 06 — Where We Work</div>
+            <h2 class="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-tight">
+              Buncombe County<br/>
+              <em class="italic font-light text-lichen">and the ridges nearby.</em>
+            </h2>
+            <p class="mt-8 text-bone/75 leading-relaxed text-lg max-w-md">
+              If you live within an hour of downtown Asheville, we're your crew.
+              For storm work we'll travel further — call and we'll figure it out.
+            </p>
+            <div class="mt-10 flex items-baseline gap-6">
+              <div class="font-display text-6xl text-rust leading-none">~50</div>
+              <div class="label text-bone/80 leading-tight">Mile radius<br/>from Asheville</div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <!-- decorative topo map block -->
+            <div class="relative aspect-[5/4] bg-moss border border-bone/15 overflow-hidden">
+              <svg viewBox="0 0 500 400" class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                <g fill="none" stroke="rgba(138,160,122,0.22)" stroke-width="1">
+                  <ellipse cx="250" cy="200" rx="60" ry="40"/>
+                  <ellipse cx="250" cy="200" rx="110" ry="78"/>
+                  <ellipse cx="250" cy="200" rx="160" ry="118"/>
+                  <ellipse cx="250" cy="200" rx="210" ry="158"/>
+                  <ellipse cx="250" cy="200" rx="260" ry="198"/>
+                  <ellipse cx="250" cy="200" rx="310" ry="238"/>
+                </g>
+                <g fill="none" stroke="rgba(184,90,43,0.5)" stroke-width="1.5" stroke-dasharray="3 4">
+                  <ellipse cx="250" cy="200" rx="170" ry="125"/>
+                </g>
+                <circle cx="250" cy="200" r="6" fill="#b85a2b"/>
+                <circle cx="250" cy="200" r="14" fill="none" stroke="#b85a2b" stroke-width="1"/>
+                <text x="262" y="195" fill="#f7f2e3" font-family="JetBrains Mono" font-size="9" letter-spacing="1.5">ASHEVILLE</text>
+                <text x="262" y="206" fill="rgba(247,242,227,0.6)" font-family="JetBrains Mono" font-size="7" letter-spacing="1">HQ · LOT 1</text>
+              </svg>
+              <div class="absolute bottom-4 left-4 label text-bone/60">Approximate · not to scale</div>
+              <div class="absolute top-4 right-4 label text-bone/60">N ↑</div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2">
+              {towns.map(t => (
+                <div class="flex items-center gap-2 text-bone/85">
+                  <span class="text-rust">·</span>
+                  <span>{t}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE FORM -->
+    <section id="contact" class="relative bg-kraft text-ink grain">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-24 md:py-32">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5">
+            <div class="label text-rust mb-6">Section 07 — Request an Estimate</div>
+            <h2 class="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-tight">
+              Free, written,<br/>
+              <em class="italic font-light">on the property.</em>
+            </h2>
+            <p class="mt-8 text-lg text-ink/75 leading-relaxed max-w-md">
+              Fill out the form or pick up the phone. We'll walk the job with you,
+              talk through options, and email a written quote — usually same day.
+            </p>
+
+            <div class="mt-10 space-y-5 border-t border-ink/20 pt-8">
+              <div>
+                <div class="label text-ink/60">Call the office</div>
+                <a href="tel:+18285550142" class="font-display text-3xl link-quill">(828) 555-0142</a>
+              </div>
+              <div>
+                <div class="label text-ink/60">Email</div>
+                <a href="mailto:hello@ironwoodtree.co" class="font-display text-2xl link-quill">hello@ironwoodtree.co</a>
+              </div>
+              <div>
+                <div class="label text-ink/60">Storm line · 24/7</div>
+                <a href="tel:+18285550143" class="font-display text-2xl text-rust link-quill">(828) 555-0143</a>
+              </div>
+            </div>
+          </div>
+
+          <form class="lg:col-span-7 bg-bone border border-ink p-8 md:p-10 space-y-6" action="#" method="post">
+            <div class="flex items-center justify-between border-b border-ink/30 pb-4">
+              <div class="label">Form 07-A · Estimate Request</div>
+              <div class="label text-ink/50">All fields recommended</div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <label class="block">
+                <span class="label text-ink/70">Your name</span>
+                <input type="text" name="name" required class="mt-2 w-full bg-transparent border-b border-ink/40 focus:border-rust outline-none py-2 text-lg" />
+              </label>
+              <label class="block">
+                <span class="label text-ink/70">Phone</span>
+                <input type="tel" name="phone" required class="mt-2 w-full bg-transparent border-b border-ink/40 focus:border-rust outline-none py-2 text-lg" />
+              </label>
+            </div>
+
+            <label class="block">
+              <span class="label text-ink/70">Email</span>
+              <input type="email" name="email" class="mt-2 w-full bg-transparent border-b border-ink/40 focus:border-rust outline-none py-2 text-lg" />
+            </label>
+
+            <label class="block">
+              <span class="label text-ink/70">Property address</span>
+              <input type="text" name="address" class="mt-2 w-full bg-transparent border-b border-ink/40 focus:border-rust outline-none py-2 text-lg" />
+            </label>
+
+            <label class="block">
+              <span class="label text-ink/70">What do you need done?</span>
+              <select name="service" class="mt-2 w-full bg-transparent border-b border-ink/40 focus:border-rust outline-none py-2 text-lg">
+                <option>Tree removal</option>
+                <option>Trimming / pruning</option>
+                <option>Stump grinding</option>
+                <option>Emergency / storm damage</option>
+                <option>Land clearing</option>
+                <option>Not sure — would like a walkthrough</option>
+              </select>
+            </label>
+
+            <label class="block">
+              <span class="label text-ink/70">Tell us about the job</span>
+              <textarea name="notes" rows="4" class="mt-2 w-full bg-transparent border border-ink/30 focus:border-rust outline-none p-3 text-lg" placeholder="How many trees, rough size, anything we should know..."></textarea>
+            </label>
+
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-ink/20">
+              <div class="label text-ink/60">We reply within one business day.</div>
+              <button type="submit" class="group flex items-center gap-4 bg-ink hover:bg-rust text-bone px-7 py-4 transition-colors">
+                <span class="label">Send Request</span>
+                <span class="font-display text-2xl leading-none group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative bg-moss-deep text-bone grain grain-light">
+      <div class="relative z-10 max-w-[1400px] mx-auto px-5 md:px-10 py-20">
+        <div class="grid md:grid-cols-12 gap-10">
+          <div class="md:col-span-5">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="relative w-12 h-12">
+                <div class="absolute inset-0 rounded-full border-2 border-bone"></div>
+                <div class="absolute inset-1 rounded-full border border-bone/40"></div>
+                <div class="absolute inset-0 grid place-items-center font-display text-xl">⌘</div>
+              </div>
+              <div>
+                <div class="font-display text-2xl leading-none">Ironwood Tree Co.</div>
+                <div class="label text-bone/60 mt-0.5">Est. 1987 · Asheville, NC</div>
+              </div>
+            </div>
+            <p class="text-bone/70 max-w-sm leading-relaxed">
+              Three generations of arborists, working the Western North Carolina mountains.
+              We answer the phone. We show up on time. We clean up after.
+            </p>
+          </div>
+
+          <div class="md:col-span-2">
+            <div class="label text-rust mb-4">Services</div>
+            <ul class="space-y-2 text-bone/80">
+              <li>Tree Removal</li>
+              <li>Pruning</li>
+              <li>Stump Grinding</li>
+              <li>Storm Response</li>
+              <li>Land Clearing</li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-2">
+            <div class="label text-rust mb-4">Visit</div>
+            <ul class="space-y-2 text-bone/80">
+              <li>1487 Sweeten Creek Rd.</li>
+              <li>Asheville, NC 28803</li>
+              <li class="pt-2">Mon–Fri · 7a–6p</li>
+              <li>Sat · 8a–2p</li>
+              <li>Storm line · 24/7</li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-3">
+            <div class="label text-rust mb-4">Get in Touch</div>
+            <ul class="space-y-2 text-bone/80">
+              <li><a href="tel:+18285550142" class="link-quill">(828) 555-0142</a></li>
+              <li><a href="mailto:hello@ironwoodtree.co" class="link-quill">hello@ironwoodtree.co</a></li>
+              <li class="pt-2 label text-bone/50">License #NC-2918</li>
+              <li class="label text-bone/50">Workers Comp · $2M GL</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-bone/15 flex flex-col md:flex-row justify-between gap-4 label text-bone/55">
+          <div>© 1987–2026 Ironwood Tree Co. · A Burke Family Business</div>
+          <div class="flex gap-6">
+            <span>Privacy</span>
+            <span>Sitemap</span>
+            <a href={import.meta.env.BASE_URL} class="hover:text-rust transition-colors">← Back to Showroom</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</Layout>

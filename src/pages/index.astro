@@ -5,99 +5,63 @@ const demos = [
   {
     slug: 'tree-service',
     name: 'Ironwood Tree Co.',
-    industry: 'Tree Service · Arboriculture',
-    location: 'Asheville, NC',
-    tone: 'Rugged · Editorial · Workwear',
+    trade: 'Tree Service',
+    location: 'Westminster, MD',
     href: 'demos/tree-service',
-    swatch: ['#1f2a1d', '#b85a2b', '#e9dfc8'],
     status: 'Live',
   },
 ];
 ---
-<Layout title="Showroom · Small Business Demos">
-  <main class="min-h-screen bg-kraft text-ink grain">
-    <div class="relative z-10">
-      <header class="border-b border-ink/15">
-        <div class="max-w-7xl mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-ink text-bone grid place-items-center font-display text-lg">◉</div>
-            <div>
-              <div class="label text-ink/70">The Showroom</div>
-              <div class="font-display text-xl leading-none">Small Business Demos</div>
-            </div>
-          </div>
-          <div class="hidden md:flex items-center gap-8 label text-ink/70">
-            <span>01 · Catalog</span>
-            <span>02 · Process</span>
-            <span>03 · Contact</span>
-          </div>
-        </div>
-      </header>
-
-      <section class="max-w-7xl mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-16">
-        <div class="label text-rust mb-6 rise rise-1">Volume 01 — Field Catalog</div>
-        <h1 class="font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] tracking-tight max-w-5xl rise rise-2">
-          Websites built like<br/>
-          <em class="italic font-light text-rust">small businesses</em> deserve.
-        </h1>
-        <p class="mt-8 max-w-2xl text-xl text-ink/75 leading-relaxed rise rise-3">
-          A working showroom of demonstration websites for real-world trades and storefronts.
-          Each one is hand-built, distinct, and ready for a customer conversation.
+<Layout
+  title="Small Business Demo Showroom"
+  description="Minimal small-business website demos focused on contact details, services, and fast customer action."
+>
+  <main class="min-h-screen bg-paper text-ink">
+    <header class="border-b border-line bg-white">
+      <div class="mx-auto max-w-6xl px-5 py-8 md:px-8">
+        <p class="label text-muted">The Showroom</p>
+        <h1 class="mt-3 text-4xl font-semibold text-ink md:text-5xl">Small Business Demos</h1>
+        <p class="mt-4 max-w-2xl leading-7 text-muted">
+          Simple demonstration sites for local businesses. Each page prioritizes contact details,
+          services, hours, and a clear way to get in touch.
         </p>
-      </section>
+      </div>
+    </header>
 
-      <section class="max-w-7xl mx-auto px-6 md:px-10 pb-32">
-        <div class="flex items-end justify-between border-b border-ink/30 pb-4 mb-10">
-          <div class="label">The Catalog · {demos.length.toString().padStart(2, '0')} entr{demos.length === 1 ? 'y' : 'ies'}</div>
-          <div class="label text-ink/50 hidden sm:block">Updated · 2026</div>
-        </div>
+    <section class="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-14">
+      <div class="mb-5 flex items-end justify-between gap-4 border-b border-line pb-3">
+        <h2 class="text-lg font-semibold text-ink">Catalog</h2>
+        <span class="text-sm text-muted">{demos.length} demos</span>
+      </div>
 
-        <div class="grid md:grid-cols-2 gap-8 md:gap-10">
-          {demos.map((demo, i) => (
+      <div class="grid gap-4 md:grid-cols-2">
+        {demos.map((demo) => (
+          <article class="rounded-lg border border-line bg-white p-5">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="label text-muted">{demo.trade}</p>
+                <h3 class="mt-2 text-2xl font-semibold text-ink">{demo.name}</h3>
+                <p class="mt-2 text-muted">{demo.location}</p>
+              </div>
+              <span class="rounded-full border border-line px-2.5 py-1 text-xs font-medium text-muted">{demo.status}</span>
+            </div>
             <a
               href={`${import.meta.env.BASE_URL}/${demo.href}`.replace(/\/+/g, '/')}
-              class="group relative block bg-bone border border-ink/20 hover:border-ink transition-all duration-300 hover:-translate-y-1"
+              class="mt-6 inline-flex rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
             >
-              <div class="aspect-[4/3] relative overflow-hidden bg-moss">
-                <div class="absolute inset-0 grid grid-cols-3">
-                  {demo.swatch.map(c => <div style={`background:${c}`}></div>)}
-                </div>
-                <div class="absolute inset-0 flex items-end p-6">
-                  <div class="font-display text-bone text-6xl md:text-7xl leading-none tracking-tight">
-                    {String(i + 1).padStart(2, '0')}
-                  </div>
-                </div>
-                <div class="absolute top-4 right-4 label bg-bone/90 text-ink px-2 py-1">{demo.status}</div>
-              </div>
-              <div class="p-6 md:p-8">
-                <div class="label text-ink/60 mb-3">{demo.industry}</div>
-                <div class="font-display text-3xl md:text-4xl mb-2">{demo.name}</div>
-                <div class="text-ink/70 mb-6">{demo.location} · {demo.tone}</div>
-                <div class="flex items-center justify-between pt-4 border-t border-ink/15">
-                  <span class="label text-rust">View Demo →</span>
-                  <span class="label text-ink/50">{demo.slug}</span>
-                </div>
-              </div>
+              View
             </a>
-          ))}
+          </article>
+        ))}
+      </div>
 
-          <div class="border border-dashed border-ink/30 p-8 md:p-10 flex flex-col justify-between min-h-[420px] bg-kraft-light/40">
-            <div>
-              <div class="label text-ink/60 mb-3">Coming Soon</div>
-              <div class="font-display text-3xl md:text-4xl leading-tight mb-4">More demos<br/>under construction.</div>
-              <p class="text-ink/70">Restaurant, salon, HVAC, plumbing — each built bespoke to its trade.</p>
-            </div>
-            <div class="label text-ink/50 mt-8">— The workshop is open</div>
-          </div>
-        </div>
-      </section>
+      <p class="mt-8 text-sm text-muted">More trades can be added by creating a data-driven demo page and adding it to this catalog.</p>
+    </section>
 
-      <footer class="border-t border-ink/20 bg-moss-deep text-bone grain grain-light">
-        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-10 flex flex-col md:flex-row justify-between gap-4">
-          <div class="label text-bone/70">© The Showroom · A demonstration repository</div>
-          <div class="label text-bone/70">Built with Astro · Tailwind</div>
-        </div>
-      </footer>
-    </div>
+    <footer class="border-t border-line bg-white">
+      <div class="mx-auto max-w-6xl px-5 py-6 text-sm text-muted md:px-8">
+        Built with Astro and Tailwind.
+      </div>
+    </footer>
   </main>
 </Layout>

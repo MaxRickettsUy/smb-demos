@@ -1,0 +1,27 @@
+---
+import type { Business } from '../lib/business';
+
+interface Props {
+  business: Business;
+}
+
+const { business } = Astro.props;
+---
+<header class="sticky top-0 z-30 border-b border-line bg-paper/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 md:px-8">
+    <a href="#top" class="min-w-0">
+      <div class="truncate text-base font-semibold text-ink">{business.name}</div>
+      <div class="label mt-1 text-muted">{business.trade}</div>
+    </a>
+    <nav class="hidden items-center gap-6 text-sm text-muted md:flex">
+      <a href="#services" class="hover:text-ink">Services</a>
+      <a href="#contact" class="hover:text-ink">Contact</a>
+    </nav>
+    <a
+      href={business.phoneHref}
+      class="shrink-0 rounded-md bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+    >
+      {business.phone}
+    </a>
+  </div>
+</header>
