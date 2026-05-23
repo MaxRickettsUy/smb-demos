@@ -1,0 +1,77 @@
+---
+import ContactCard from '../../../components/ContactCard.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import Services from '../../../components/Services.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import SiteHeader from '../../../components/SiteHeader.astro';
+import Layout from '../../../layouts/Layout.astro';
+import type { Business } from '../../../lib/business';
+
+const business: Business = {
+  name: 'Clean Haul Junk Removal',
+  trade: 'Junk Removal',
+  tagline: 'Furniture, appliance, and estate cleanout hauling for Frederick homes and small businesses.',
+  location: 'Frederick, MD',
+  phone: '(301) 555-0176',
+  phoneHref: 'tel:+13015550176',
+  email: 'hello@cleanhauljunk.example',
+  address: ['423 East Patrick Street', 'Frederick, MD 21701'],
+  hours: [
+    { days: 'Mon-Fri', time: '8:00 AM-6:00 PM' },
+    { days: 'Saturday', time: '8:00 AM-3:00 PM' },
+  ],
+  services: [
+    { title: 'Furniture & Appliance Removal', blurb: 'Couches, mattresses, fridges, washers, and bulky household items hauled and disposed.' },
+    { title: 'Estate & Garage Cleanouts', blurb: 'Full-property and single-room clearouts with sorting and donation drop-off when possible.' },
+    { title: 'Construction Debris Hauling', blurb: 'Drywall, lumber, fixtures, and renovation waste removed from small job sites.' },
+    { title: 'Same-Day Pickup', blurb: 'Flexible scheduling with a call-ahead arrival window for urgent removals.' },
+  ],
+  license: 'MD Home Improvement & Hauling License #HJ-4417',
+  founded: '2011',
+  heroImage: 'https://images.unsplash.com/photo-1590496793929-36417d3117de?w=1200&q=80&auto=format',
+  accent: '#d97706',
+};
+---
+<Layout
+  title={`${business.name} · ${business.trade} · ${business.location}`}
+  description={`${business.name} provides ${business.trade.toLowerCase()} in ${business.location}. Call ${business.phone} or email ${business.email}.`}
+>
+  <main id="top" class="min-h-screen bg-paper text-ink" style={`--accent: ${business.accent};`}>
+    <SiteHeader business={business} />
+
+    <section class="mx-auto grid max-w-6xl gap-8 px-5 py-12 md:grid-cols-[1fr_360px] md:px-8 md:py-16">
+      <div class="self-center">
+        <p class="label text-muted">{business.location}</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-normal text-ink md:text-6xl">{business.name}</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-muted md:text-xl">{business.tagline}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href={business.phoneHref} class="rounded-md bg-[var(--accent)] px-5 py-3 text-center text-sm font-semibold text-white hover:opacity-90">
+            Call {business.phone}
+          </a>
+          <a href={`mailto:${business.email}`} class="rounded-md border border-line bg-white px-5 py-3 text-center text-sm font-semibold text-ink hover:border-[var(--accent)]">
+            Email us
+          </a>
+        </div>
+      </div>
+
+      {business.heroImage && (
+        <img
+          src={business.heroImage}
+          alt="Loaded removal truck"
+          class="h-72 w-full rounded-lg object-cover md:h-full"
+        />
+      )}
+    </section>
+
+    <Services services={business.services} />
+
+    <section id="contact" class="border-t border-line py-14 md:py-18">
+      <div class="mx-auto grid max-w-6xl gap-6 px-5 md:grid-cols-2 md:px-8">
+        <ContactCard business={business} />
+        <ContactForm />
+      </div>
+    </section>
+
+    <SiteFooter business={business} />
+  </main>
+</Layout>
