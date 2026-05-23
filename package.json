@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro build",
+    "lint": "eslint .",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -15,5 +16,11 @@
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.6",
     "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.4.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "typescript-eslint": "^8.59.4"
   }
 }
